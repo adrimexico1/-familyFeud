@@ -1,0 +1,56 @@
+{
+  "rondas": [
+    {
+      "pregunta": "Menciona algo que siempre guardas en la guantera del auto",
+      "respuestas": [
+        {"texto": "Papeles del auto / Seguro / Licencia", "puntos": 48},
+        {"texto": "Linterna / Herramientas", "puntos": 16},
+        {"texto": "Lentes de sol / Gafas", "puntos": 12},
+        {"texto": "Servilletas / Papel", "puntos": 9},
+        {"texto": "Cargador de celular / Cables", "puntos": 6},
+        {"texto": "Dulces / Chicles", "puntos": 4},
+        {"texto": "Monedas / Cambio", "puntos": 3}
+      ]
+    },
+    {
+      "pregunta": "Menciona algo que haces cuando se corta la luz en tu casa",
+      "respuestas": [
+        {"texto": "Encender velas / Usar linterna", "puntos": 52},
+        {"texto": "Revisar los fusibles / Pastillas", "puntos": 18},
+        {"texto": "Ver si los vecinos tienen luz", "puntos": 14},
+        {"texto": "Quejarse / Llamar a la compañía", "puntos": 8},
+        {"texto": "Dormir / Descansar", "puntos": 5},
+        {"texto": "Usar el celular", "puntos": 3}
+      ]
+    },
+    {
+      "pregunta": "Menciona una excusa común para llegar tarde al trabajo",
+      "respuestas": [
+        {"texto": "Mucho tráfico / Trancón", "puntos": 58},
+        {"texto": "No sonó la alarma / Me quedé dormido", "puntos": 22},
+        {"texto": "Problemas con el transporte público", "puntos": 10},
+        {"texto": "Cita médica de emergencia", "puntos": 5},
+        {"texto": "Se me perdieron las llaves", "puntos": 3},
+        {"texto": "El clima / Lluvia fuerte", "puntos": 2}
+      ]
+    },
+    {
+      "pregunta": "Menciona un animal que sea difícil de tener como mascota",
+      "respuestas": [
+        {"texto": "León / Tigre / Felino grande", "puntos": 40},
+        {"texto": "Elefante / Jirafa", "puntos": 25},
+        {"texto": "Cocodrilo / Caimán", "puntos": 15},
+        {"texto": "Serpiente / Víbora", "puntos": 10},
+        {"texto": "Mono / Chimpancé", "puntos": 7},
+        {"texto": "Tiburón / Pez exótico", "puntos": 3}
+      ]
+    }
+  ],
+  "dinero_rapido": [
+    {"pregunta": "Menciona una fruta de color amarillo"},
+    {"pregunta": "Menciona un animal de granja"},
+    {"pregunta": "Menciona algo que haces justo antes de dormir"},
+    {"pregunta": "Menciona una materia que se enseña en la primaria"},
+    {"pregunta": "Menciona algo que compras cuando vas al cine"}
+  ]
+}

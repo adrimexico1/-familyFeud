@@ -108,3 +108,7 @@ class GameController:
     def play_buzzer_sound(self):
         """Reproduce el zumbador (Buzzer) de dinero rápido."""
         self.audio_manager.play_buzzer()
+        
+    def set_fast_money_timer(self, seconds):
+        """Actualiza el temporizador de dinero rápido en el modelo."""
+        self.model.set_fast_money_timer(seconds)

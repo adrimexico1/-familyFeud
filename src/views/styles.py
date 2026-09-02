@@ -21,6 +21,19 @@ QWidget#boardContainer {{
     border-radius: 15px;
 }}
 
+/* Marca de agua antes de la pregunta */
+QLabel#watermarkLabelHeader {{
+    font-size: 14px;
+    font-weight: 900;
+    color: {THEME_GOLD};
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 1px solid {THEME_GOLD};
+    border-radius: 10px;
+    padding: 10px 15px;
+}}
+
 /* Etiquetas generales */
 QLabel {{
     color: {THEME_TEXT_LIGHT};

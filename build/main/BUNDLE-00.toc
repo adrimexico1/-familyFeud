@@ -1,0 +1,3 @@
+([('main',
+   '/Users/adrimexico1/Documents/proyectosPersonales/cien-trakas-dijeron/dist/main',
+   'EXECUTABLE')],)

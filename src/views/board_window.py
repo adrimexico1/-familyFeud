@@ -117,6 +117,28 @@ class BoardWindow(QMainWindow):
         # Overlay de Strikes (X)
         self.setup_strike_overlay()
 
+        # -------------------------------------------------------------
+        # MARCA DE AGUA FLOTANTE EN TODA LA VENTANA (La nueva que añadimos)
+        # -------------------------------------------------------------
+        self.setup_watermark_overlay()
+
+    def setup_watermark_overlay(self):
+        """Crea una marca de agua flotante semi-transparente que cubre toda la ventana."""
+        self.watermark_overlay = QLabel("Powered by adrimexico1", self)
+        # Hace que ignore los clics del mouse para no estorbar en el juego
+        self.watermark_overlay.setAttribute(Qt.WA_TransparentForMouseEvents, True)
+        self.watermark_overlay.setAlignment(Qt.AlignCenter)
+        
+        self.watermark_overlay.setStyleSheet("""
+            font-size: 36px;
+            font-weight: bold;
+            color: rgba(120, 130, 160, 35); 
+            background: transparent;
+        """)
+        self.watermark_overlay.setGeometry(self.rect())
+        self.watermark_overlay.raise_()
+        self.watermark_overlay.show()
+
     def setup_lobby_page(self):
         layout = QVBoxLayout(self.lobby_page)
         layout.setAlignment(Qt.AlignCenter)
@@ -137,8 +159,14 @@ class BoardWindow(QMainWindow):
         layout = QVBoxLayout(self.board_page)
         layout.setSpacing(20)
         
-        # Encabezado (Pregunta y puntos de ronda)
+        # Encabezado (Marca de agua de cabecera, Pregunta y Puntos de ronda)
         header_layout = QHBoxLayout()
+        header_layout.setSpacing(10)
+        
+        # Marca de agua en el encabezado (La que ya tenías)
+        self.lbl_watermark = QLabel("powered by adrimexico1", self)
+        self.lbl_watermark.setObjectName("watermarkLabelHeader")
+        self.lbl_watermark.setAlignment(Qt.AlignCenter)
         
         # Nombre de la pregunta
         self.lbl_question = QLabel("PREGUNTA AQUÍ", self)
@@ -150,6 +178,7 @@ class BoardWindow(QMainWindow):
         self.lbl_round_points.setObjectName("roundPointsValue")
         self.lbl_round_points.setAlignment(Qt.AlignCenter)
         
+        header_layout.addWidget(self.lbl_watermark, 0)
         header_layout.addWidget(self.lbl_question, 4)
         header_layout.addWidget(self.lbl_round_points, 1)
         layout.addLayout(header_layout)
@@ -318,6 +347,9 @@ class BoardWindow(QMainWindow):
         self.strike_overlay.setVisible(True)
         self.strike_overlay.raise_()
         
+        if hasattr(self, 'watermark_overlay'):
+            self.watermark_overlay.raise_()
+        
         # Parpadeo o cierre a los 1.5 segundos
         self.strike_timer.start(1500)
 
@@ -326,9 +358,12 @@ class BoardWindow(QMainWindow):
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
-        # Ajustar el tamaño del overlay si cambia el tamaño de la ventana
+        # Ajustar el tamaño del overlay y la marca de agua flotante si cambia la ventana
         if hasattr(self, 'strike_overlay'):
             self.strike_overlay.setGeometry(self.rect())
+        if hasattr(self, 'watermark_overlay'):
+            self.watermark_overlay.setGeometry(self.rect())
+            self.watermark_overlay.raise_()
 
     def connect_signals(self):
         self.model.state_changed.connect(self.update_state)
@@ -348,6 +383,9 @@ class BoardWindow(QMainWindow):
         elif self.model.game_phase == "DINERO_RAPIDO":
             self.stacked_widget.setCurrentWidget(self.fast_money_page)
             self.update_fast_money_board()
+            
+        if hasattr(self, 'watermark_overlay'):
+            self.watermark_overlay.raise_()
 
     def update_scores(self, score_a, score_b):
         self.lbl_team_a_score.setText(str(score_a))
